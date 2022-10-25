@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+
+double triangleArea(double s1, double s2, double s3);
+double rectangleArea(double l, double w);
+double squareArea(double l);
+
+int main()
+{
+	// for square and rectangle
+	double length;
+	double width;
+
+	double side; // for triangle
+
+	int choice;
+
+	cout << endl
+		<< "1 --> Triangle's area\n\n"
+		<< "2 --> Rectangle's area\n\n"
+		<< "3 --> Square's area\n\n";
+	
+	cout << "\nEnter option: "; cin >> choice;
+
+	switch (choice)
+	{
+	case 1:
+		cout << "\nEnter side 1: "; cin >> length;
+		cout << "\nEnter side 2: "; cin >> width;
+		cout << "\nEnter side 3: "; cin >> side;
+		cout << endl << triangleArea(length, width, side);
+		break;
+	case 2:
+		cout << "\nEnter rectangle's length: "; cin >> length;
+		cout << "\nEnter rectangle's width: "; cin >> width;
+		cout << endl << rectangleArea(length, width) << endl;
+		break;
+	case 3:
+		cout << "\nEnter sqaure's length: "; cin >> length;
+		cout << endl << squareArea(length) << endl;
+		break;
+	default:
+		break;
+	}
+}
+
+double triangleArea(double s1, double s2, double s3) {
+	double p = (s1 + s2 + s3) / 2;
+	double S = p * (p - s1) * (p - s2) * (p - s3);
+	for (size_t i = 0; i < S; i++ ) {
+		if (i * i == S)
+			return i;
+	}
+}
+
+double rectangleArea(double l, double w) {
+	return l * w;
+}
+
+double squareArea(double l) {
+	return l * l;
+}
